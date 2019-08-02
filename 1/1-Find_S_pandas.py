@@ -1,9 +1,13 @@
 import pandas as pd
 
-#initial hypothesis should be null sets
-init_hypothesis = ['%','%','%','%','%','%','%']
 df = pd.read_csv('Dataset-lab-1.csv')
 attr = list(df.columns)
+
+#initial hypothesis should be null sets
+init_hypothesis = ['%','%','%','%','%','%','%']
+
+#can also be done as shown below
+#init_hypothesis1 = [ '%' for i in range(len(attr)) ]
 
 #to obtain class_attribute
 class_attr = str(attr[len(attr)-1])
