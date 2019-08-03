@@ -1,4 +1,4 @@
-# ML-lab-college
+# ML-lab
 
 List of programs:
 1. Find-S 
