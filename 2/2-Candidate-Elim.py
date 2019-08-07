@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import pandas as pd
+import sys
 
 df = pd.DataFrame(pd.read_csv('Data2.csv'))
 #df
@@ -76,7 +77,7 @@ for index, row in df.iterrows():
             #check for consistency with generic boundary
             consistent()
 
-    elif row[class_index] == 'N':
+    elif row[class_index] == 'N' and S[len(S)-1][0] != '%':
         row = row[:len(row)-1]
         print("For negative instance entered")
         i = 0
@@ -91,15 +92,20 @@ for index, row in df.iterrows():
             #print(S[-1][i])
             if row[i] != S[-1][i] and S[-1][i] != '?':
                 tmp2[i] = S[-1][i]
-                print(tmp2)
+                #print(tmp2)
                 tmp1.append(tmp2)
-                print(tmp1)
+                #print(tmp1)
                 continue
             elif S[-1][i] == '?':
                 #print("CAME HERE ALSO")
                 continue
         S.append(S[-1])
         G.append(tmp1)
+    
+    elif index==0 and row[class_index] == 'N':
+        #TODO
+        print("Negative class label for first training instance")
+        sys.exit(0)
     
 print('S',index+1,':',S[index])
 print('G',index+1,':',G[index])
